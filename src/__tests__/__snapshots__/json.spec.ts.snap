@@ -13,8 +13,20 @@ exports[`json 1 should generate a valid feed 1`] = `
         \\"url\\": \\"https://example.com/johndoe?link=sanitized&value=2\\"
     },
     \\"_example_extension\\": {
-        \\"about\\": \\"just an extension example\\",
-        \\"dummy\\": \\"example\\"
+        \\"name\\": \\"_example_extension\\",
+        \\"type\\": \\"element\\",
+        \\"elements\\": [
+            {
+                \\"type\\": \\"text\\",
+                \\"name\\": \\"about\\",
+                \\"text\\": \\"just an extension example\\"
+            },
+            {
+                \\"type\\": \\"text\\",
+                \\"name\\": \\"dummy\\",
+                \\"text\\": \\"example\\"
+            }
+        ]
     },
     \\"items\\": [
         {
@@ -35,12 +47,36 @@ exports[`json 1 should generate a valid feed 1`] = `
                 \\"MSFT\\"
             ],
             \\"_item_extension_1\\": {
-                \\"about\\": \\"just an item extension example\\",
-                \\"dummy1\\": \\"example\\"
+                \\"name\\": \\"_item_extension_1\\",
+                \\"type\\": \\"element\\",
+                \\"elements\\": [
+                    {
+                        \\"type\\": \\"text\\",
+                        \\"name\\": \\"about\\",
+                        \\"text\\": \\"just an item extension example\\"
+                    },
+                    {
+                        \\"type\\": \\"text\\",
+                        \\"name\\": \\"dummy1\\",
+                        \\"text\\": \\"example\\"
+                    }
+                ]
             },
             \\"_item_extension_2\\": {
-                \\"about\\": \\"just a second item extension example\\",
-                \\"dummy1\\": \\"example\\"
+                \\"name\\": \\"_item_extension_2\\",
+                \\"type\\": \\"element\\",
+                \\"elements\\": [
+                    {
+                        \\"type\\": \\"text\\",
+                        \\"name\\": \\"about\\",
+                        \\"text\\": \\"just a second item extension example\\"
+                    },
+                    {
+                        \\"type\\": \\"text\\",
+                        \\"name\\": \\"dummy1\\",
+                        \\"text\\": \\"example\\"
+                    }
+                ]
             }
         }
     ]

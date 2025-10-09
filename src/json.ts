@@ -43,7 +43,7 @@ export default (ins: Feed) => {
   }
 
   extensions.map((e: Extension) => {
-    feed[e.name] = e.objects;
+    feed[e.name] = e;
   });
 
   feed.items = items.map((item: Item) => {
@@ -103,7 +103,7 @@ export default (ins: Feed) => {
 
     if (item.extensions) {
       item.extensions.map((e: Extension) => {
-        feedItem[e.name] = e.objects;
+        feedItem[e.name] = e
       });
     }
 

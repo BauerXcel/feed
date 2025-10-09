@@ -72,17 +72,35 @@ export const createSampleFeed = () => {
     extensions: [
       {
         name: "_item_extension_1",
-        objects: {
-          about: "just an item extension example",
-          dummy1: "example",
-        },
+        type: "element",
+        elements: [
+          {
+            type: "text",
+            name: "about",
+            text: "just an item extension example"
+          },
+          {
+            type: "text",
+            name: "dummy1",
+            text: "example"
+          }
+        ],
       },
       {
         name: "_item_extension_2",
-        objects: {
-          about: "just a second item extension example",
-          dummy1: "example",
-        },
+        type: "element",
+        elements: [
+          {
+            type: "text",
+            name: "about",
+            text: "just a second item extension example"
+          },
+          {
+            type: "text",
+            name: "dummy1",
+            text: "example"
+          }
+        ],
       },
     ],
     category: [
@@ -102,10 +120,19 @@ export const createSampleFeed = () => {
 
   feed.addExtension({
     name: "_example_extension",
-    objects: {
-      about: "just an extension example",
-      dummy: "example",
-    },
+    type: "element",
+    elements: [
+      {
+        type: "text",
+        name: "about",
+        text: "just an extension example"
+      },
+      {
+        type: "text",
+        name: "dummy",
+        text: "example"
+      }
+    ],
   });
 
   return feed;

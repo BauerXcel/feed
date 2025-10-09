@@ -1,3 +1,5 @@
+import type { AtLeastOneOf } from "../utils";
+
 export interface Item {
   title: string;
   id?: string;
@@ -70,7 +72,35 @@ export interface FeedOptions {
   copyright: string;
 }
 
-export interface Extension {
-  name: string;
-  objects: any;
+
+type Name = {
+  name: string
 }
+
+export type SerializableAttributes = Record<string, string | number | undefined>
+
+export type ElementLeafNodeText = {
+  type: "text"
+  text: string | number | boolean
+}
+
+export type ExtensionLeafNodeText = ElementLeafNodeText & Name
+
+export type ElementLeafNodeCData = {
+  type: "cdata"
+  cdata: string
+}
+
+export type ExtensionLeafNodeCData = ElementLeafNodeCData & Name
+
+type ElementsBase = {
+  type: "element"
+  name: string
+}
+
+export type ElementBranchNode = ElementsBase & AtLeastOneOf<{ elements: Element[] } | { attributes: SerializableAttributes }>
+export type Element = ElementLeafNodeText | ElementLeafNodeCData | ElementBranchNode
+
+export type ExtensionBranchNode = ElementsBase & AtLeastOneOf<{ elements: Extension[] } | { attributes: SerializableAttributes }>
+export type Extension = ExtensionLeafNodeText | ExtensionLeafNodeCData | ExtensionBranchNode
+

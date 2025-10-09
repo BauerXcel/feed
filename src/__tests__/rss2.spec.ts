@@ -29,17 +29,35 @@ describe("rss 2.0", () => {
       extensions: [
         {
           name: "_item_extension_1",
-          objects: {
-            about: "just an item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just an item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
         {
           name: "_item_extension_2",
-          objects: {
-            about: "just a second item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just a second item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
       ],
       category: [
@@ -81,17 +99,35 @@ describe("rss 2.0", () => {
       extensions: [
         {
           name: "_item_extension_1",
-          objects: {
-            about: "just an item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just an item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
         {
           name: "_item_extension_2",
-          objects: {
-            about: "just a second item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just a second item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
       ],
       category: [
@@ -130,19 +166,37 @@ describe("rss 2.0", () => {
         },
       ],
       extensions: [
-        {
+            {
           name: "_item_extension_1",
-          objects: {
-            about: "just an item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just an item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
         {
           name: "_item_extension_2",
-          objects: {
-            about: "just a second item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just a second item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
       ],
       category: [
@@ -184,19 +238,37 @@ describe("rss 2.0", () => {
         },
       ],
       extensions: [
-        {
+            {
           name: "_item_extension_1",
-          objects: {
-            about: "just an item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just an item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
         {
           name: "_item_extension_2",
-          objects: {
-            about: "just a second item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just a second item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
       ],
       category: [
@@ -257,17 +329,35 @@ describe("rss 2.0", () => {
       extensions: [
         {
           name: "_item_extension_1",
-          objects: {
-            about: "just an item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just an item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
         {
           name: "_item_extension_2",
-          objects: {
-            about: "just a second item extension example",
-            dummy1: "example",
-          },
+          type: "element",
+          elements: [
+            {
+              type: "text",
+              name: "about",
+              text: "just a second item extension example"
+            },
+            {
+              type: "text",
+              name: "dummy1",
+              text: "example"
+            }
+          ],
         },
       ],
       category: [
@@ -290,9 +380,14 @@ describe("rss 2.0", () => {
   it("should generate a valid feed with `addExtension`", () => {
     sampleFeed.addExtension({
       name: "extension_name",
-      objects: {
-        about: "just an extension example",
-      },
+      type: "element",
+      elements: [
+        {
+          type: "text",
+          name: "about",
+          text: "just an extension example"
+        }
+      ],
     });
     const actual = sampleFeed.rss2();
     expect(actual).toContain("<extension_name>");

@@ -6,4 +6,5 @@ export default defineConfig({
   ],
   outDir: "./lib",
   sourcemap: true,
+  tsconfig: "./tsconfig.json",
 });
