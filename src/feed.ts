@@ -1,10 +1,9 @@
 import renderAtom from "./atom1";
 import renderJSON from "./json";
 import renderRSS from "./rss2";
-import type { Author, Category, Enclosure, Extension, FeedOptions, Item } from "./typings";
+import type { Author, Category, Enclosure, Extension, ExtensionLeafNodeCData, ElementLeafNodeText, ExtensionBranchNode, FeedOptions, Item } from "./typings";
 
-export type { Author, Category, Enclosure, Extension, FeedOptions, Item };
-
+export type { Author, Category, Enclosure, Extension, ExtensionLeafNodeCData, ElementLeafNodeText, ExtensionBranchNode, FeedOptions, Item };
 /**
  * Class used to generate Feeds
  */
@@ -13,7 +12,7 @@ export class Feed {
   items: Item[] = [];
   categories: string[] = [];
   contributors: Author[] = [];
-  extensions: Extension[] = [];
+  extensions: ExtensionBranchNode[] = [];
 
   constructor(options: FeedOptions) {
     this.options = options;
@@ -41,7 +40,7 @@ export class Feed {
    * Adds an extension
    * @param extension
    */
-  public addExtension = (extension: Extension) => this.extensions.push(extension);
+  public addExtension = (extension: ExtensionBranchNode) => this.extensions.push(extension);
 
   /**
    * Returns a Atom 1.0 feed
