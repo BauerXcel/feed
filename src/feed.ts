@@ -1,9 +1,9 @@
 import renderAtom from "./atom1";
 import renderJSON from "./json";
 import renderRSS from "./rss2";
-import type { Author, Category, Enclosure, Extension, ExtensionLeafNodeCData, ElementLeafNodeText, ExtensionBranchNode, FeedOptions, Item } from "./typings";
+import type { Author, Category, Enclosure, Extension, ExtensionLeafNodeCData, ExtensionLeafNodeText, ElementLeafNodeText, ElementLeafNodeCData, ExtensionBranchNode, ElementBranchNode, FeedOptions, Item } from "./typings";
 
-export type { Author, Category, Enclosure, Extension, ExtensionLeafNodeCData, ElementLeafNodeText, ExtensionBranchNode, FeedOptions, Item };
+export type { Author, Category, Enclosure, Extension, ExtensionLeafNodeCData, ExtensionLeafNodeText, ElementLeafNodeText, ElementLeafNodeCData, ExtensionBranchNode, ElementBranchNode, FeedOptions, Item };
 /**
  * Class used to generate Feeds
  */
