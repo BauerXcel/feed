@@ -48,7 +48,7 @@ export default (ins: Feed) => {
   if (options.link) pushTextElement("link", sanitize(options.link));
   if (options.description) pushTextElement("description", options.description);
   pushTextElement("lastBuildDate", options.updated ? options.updated.toUTCString() : new Date().toUTCString());
-  pushTextElement("docs", options.docs ? options.docs : "https://validator.w3.org/feed/docs/rss2.html" );
+  pushTextElement("docs", options.docs ? options.docs : "https://validator.w3.org/feed/docs/rss2.html");
   pushTextElement("generator", options.generator || generator);
 
 
@@ -154,23 +154,23 @@ export default (ins: Feed) => {
     }
 
     if (item.title) {
-      itemNode.elements.push({ name: "title", type: "element", elements: [{ cdata: item.title, type: "cdata"}] });
+      itemNode.elements.push({ name: "title", type: "element", elements: [{ cdata: item.title, type: "cdata" }] });
     }
 
     if (item.link) {
-      itemNode.elements.push({ name: "link", type: "element", elements: [{ text: sanitize(item.link), type: "text"}] });
+      itemNode.elements.push({ name: "link", type: "element", elements: [{ text: sanitize(item.link), type: "text" }] });
     }
 
     if (item.guid) {
-      itemNode.elements.push({ name: "guid", type: "element", attributes: { isPermaLink: "false" }, elements: [{ text: item.guid, type: "text"}] });
+      itemNode.elements.push({ name: "guid", type: "element", attributes: { isPermaLink: "false" }, elements: [{ text: item.guid, type: "text" }] });
     } else if (item.id) {
-      itemNode.elements.push({ name: "guid", type: "element", attributes: { isPermaLink: "false" }, elements: [{ text: item.id, type: "text"}] });
+      itemNode.elements.push({ name: "guid", type: "element", attributes: { isPermaLink: "false" }, elements: [{ text: item.id, type: "text" }] });
     } else if (item.link) {
-      itemNode.elements.push({ name: "guid", type: "element", attributes: { isPermaLink: "true" }, elements: [{ text: sanitize(item.link), type: "text"}] });
+      itemNode.elements.push({ name: "guid", type: "element", attributes: { isPermaLink: "true" }, elements: [{ text: sanitize(item.link), type: "text" }] });
     }
 
     if (item.published) {
-      itemNode.elements.push({ name: "pubDate",type: "element", elements: [{ text: item.published.toUTCString(), type: "text"}] });
+      itemNode.elements.push({ name: "pubDate", type: "element", elements: [{ text: item.published.toUTCString(), type: "text" }] });
     } else if (item.date) {
       itemNode.elements.push({ name: "pubDate", type: "element", elements: [{ text: item.date.toUTCString(), type: "text" }] });
     }
@@ -189,7 +189,7 @@ export default (ins: Feed) => {
      * https://validator.w3.org/feed/docs/rss2.html#ltauthorgtSubelementOfLtitemgt
      */
     for (const author of item.author ?? []) {
-      if (author?.email && author.name){
+      if (author?.email && author.name) {
         itemNode.elements.push({
           type: "element",
           name: "author",
@@ -227,7 +227,7 @@ export default (ins: Feed) => {
      */
     if (item.video) {
       itemNode.elements.push(formatEnclosure(item.video, "video") as any);
-    }else if (item.audio) {
+    } else if (item.audio) {
       let duration = undefined;
       if (options.podcast && typeof item.audio !== "string" && item.audio.duration) {
         duration = item.audio.duration;
@@ -237,7 +237,7 @@ export default (ins: Feed) => {
 
       if (duration) {
         itemNode.elements.push({
-          name:"itunes:duration",
+          name: "itunes:duration",
           type: "element",
           elements: [{ text: formatDuration(duration), type: "text" }]
         })
@@ -346,16 +346,18 @@ const serializeExtension = (extension: Extension): ElementBranchNode => {
       break
     case "text":
       elements = [{ type: "text", text: extension.text }]
+      attributes = extension.attributes
       break
     case "cdata":
       elements = [{ type: "cdata", cdata: extension.cdata }]
+      attributes = extension.attributes
       break
   }
 
   return {
     type: "element",
     name: extension.name,
-    elements: elements,
-    attributes: attributes
+    elements,
+    attributes
   } as ElementBranchNode
 }
