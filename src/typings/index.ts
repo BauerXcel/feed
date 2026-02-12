@@ -81,7 +81,8 @@ export type SerializableAttributes = Record<string, string | number | undefined>
 
 export type ElementLeafNodeText = {
   type: "text"
-  text: string | number | boolean
+  text: string | number | boolean,
+  attributes?: SerializableAttributes
 }
 
 export type ExtensionLeafNodeText = ElementLeafNodeText & Name
@@ -89,6 +90,7 @@ export type ExtensionLeafNodeText = ElementLeafNodeText & Name
 export type ElementLeafNodeCData = {
   type: "cdata"
   cdata: string
+  attributes?: SerializableAttributes
 }
 
 export type ExtensionLeafNodeCData = ElementLeafNodeCData & Name
